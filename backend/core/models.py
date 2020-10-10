@@ -10,8 +10,8 @@ class User(AbstractUser, TimeStampedModel):
 
 
 class UserVideoItem(TimeStampedModel):
-    MOVIE = 'M'
-    SERIES = 'S'
+    MOVIE = 'movie'
+    SERIES = 'series'
     CATEGORIES = [
         (MOVIE, "Movie"),
         (SERIES, "Series"),
@@ -20,5 +20,8 @@ class UserVideoItem(TimeStampedModel):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     imdb_id = models.CharField(max_length=255)
     date_watched = models.DateField(blank=True, null=True)
-    rating = models.FloatField()
-    category = models.CharField(max_length=2, choices=CATEGORIES, default=MOVIE)
+    rating = models.FloatField(blank=True, null=True)
+    category = models.CharField(max_length=10, choices=CATEGORIES, default=MOVIE)
+
+    class Meta:
+        unique_together = ('user', 'imdb_id',)

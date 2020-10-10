@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import VideoItemsSearchResults, search_videos
+from .views import UserVideoItemListCreateView, search_videos
 
 
 app_name = 'core'
 
 urlpatterns = [
-    # path('search/', VideoItemsSearchResults.as_view(), name='search_video_item'),
-    path('search/', search_videos, name='search_video_item'),
+    path('search/', search_videos, name='search_video'),
+    path('video/', UserVideoItemListCreateView.as_view(), name='user_video_item'),
 ]

@@ -30,3 +30,4 @@ venv/
 __pycache__/
 .env
 settings.ini
+backend/db.sqlite3
