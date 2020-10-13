@@ -33,5 +33,15 @@ def search_videos(request):
         response = requests.get(f'{settings.OMDB_API_URL}s={search_param}')
         response = response.content.decode()
         response = json.loads(response)
+        user = 1  # request.user
+        uvis = UserVideoItem.objects.filter(user__id=user)  # TODO: continue from here - execute lazy query before getting into the for loop
+        for result in response:
+            record = uvis.filter(imdb_id=result['imdbID'])
+            try:
+                uvi = UserVideoItem.objects.filter(user__id=user, imdb_id=result['imdbID'])
+
+            except UserVideoItem.DoesNotExist:
+                pass
+
 
     return JsonResponse(response)
