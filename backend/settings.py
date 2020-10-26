@@ -136,12 +136,6 @@ OMDB_API_KEY = dj_config('OMDB_API_KEY')
 OMDB_API_URL = f'http://www.omdbapi.com/?apikey={OMDB_API_KEY}&'
 
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        # 'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-        'rest_framework.permissions.AllowAny'  # TODO: remove this and implement proper user login system
-    ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],

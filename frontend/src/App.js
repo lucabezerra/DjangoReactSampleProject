@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Login from './components/Login';
 import Search from './components/Search';
 import Signup from './components/Signup';
 
@@ -10,7 +11,7 @@ const App = () => {
     <>
       {token ?
         <Search /> :
-        <Signup />
+        <Login />
       }
     </>
   );

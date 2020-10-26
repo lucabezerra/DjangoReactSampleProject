@@ -1,3 +1,5 @@
+from django.contrib.auth.hashers import make_password
+
 from rest_framework import serializers
 
 from .models import User
@@ -9,11 +11,7 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
-
-class UserLoginSerializer(serializers.ModelSerializer):
-    token = serializers.SerializerMethodField()
-
-    class Meta:
-        model = User
-        fields = ['username', 'first_name', 'last_name', 'token']
-
+    def validate_password(self, value):
+        if not value:
+            raise serializers.ValidationError("This field is required.")
+        return make_password(value)
