@@ -9,6 +9,7 @@ django-cors-headers==3.5.0
 django-extensions==3.0.9
 django-rest-framework==0.1.0
 djangorestframework==3.12.1
+djangorestframework-simplejwt==4.4.0
 idna==2.10
 ipdb==0.13.4
 ipython==7.18.1
@@ -20,6 +21,7 @@ pickleshare==0.7.5
 prompt-toolkit==3.0.7
 ptyprocess==0.6.0
 Pygments==2.7.1
+PyJWT==1.7.1
 python-decouple==3.3
 pytz==2020.1
 requests==2.24.0

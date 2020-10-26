@@ -1,11 +1,18 @@
 import React from 'react';
 
 import Search from './components/Search';
+import Signup from './components/Signup';
 
 
-function App() {
+const App = () => {
+  const token = localStorage.getItem('drspToken');
   return (
-    <Search />
+    <>
+      {token ?
+        <Search /> :
+        <Signup />
+      }
+    </>
   );
 }
 

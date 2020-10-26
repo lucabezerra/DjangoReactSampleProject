@@ -1,12 +1,11 @@
 from django.contrib import admin
 from django.urls import path
 
-from .views import UserVideoItemListCreateView, search_videos
+from .views import UserCreateRetrieveView
 
 
 app_name = 'core'
 
 urlpatterns = [
-    path('search/', search_videos, name='search_video'),
-    path('video/', UserVideoItemListCreateView.as_view(), name='user_video_item'),
+    path('user/', UserCreateRetrieveView.as_view(), name='user'),
 ]

@@ -1,17 +1,19 @@
-from rest_framework.serializers import ModelSerializer
+from rest_framework import serializers
 
-from .models import User, UserVideoItem
+from .models import User
 
 
-class UserSerializer(ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
         fields = '__all__'
 
 
-class UserVideoItemSerializer(ModelSerializer):
+class UserLoginSerializer(serializers.ModelSerializer):
+    token = serializers.SerializerMethodField()
 
     class Meta:
-        model = UserVideoItem
-        fields = '__all__'
+        model = User
+        fields = ['username', 'first_name', 'last_name', 'token']
+

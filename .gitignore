@@ -26,8 +26,9 @@ frontend/yarn-error.log*
 
 # django
 venv/
+venv_drsp/
 *.pyc
 __pycache__/
 .env
 settings.ini
-backend/db.sqlite3
+db.sqlite3
